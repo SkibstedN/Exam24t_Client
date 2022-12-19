@@ -8,7 +8,7 @@
     <title>Index</title>
 </head>
 <body>
-    <h2>24 timers eksamensprojekt - Dagligvare levering</h2>
+    <center><h2>24 timers eksamensprojekt - Dagligvare levering</h2></center>
 
     <!-- Create Product form & submit-->
     <div id="mainDiv" class="makeUp">
@@ -39,13 +39,49 @@
 
     <!--find by id-->
     <div class="makeUp">
+        <h3>Find Product</h3>
+
         <label for="pIdInput">Product ID</label><br>
         <input type="text" id="pIdInput"><br>
         <button onclick="findProductData()">Find Product</button>
         <div id="productFoundDiv"></div>
     </div>
+    <br>
 
-    <!--              Create Product Order
+    <!--Create Delivery-->
+    <div class="makeUp">
+        <h3>Create Delivery</h3>
+        <label for="deliveryDateInput">Delivery Date: </label><br>
+        <input type="text" id="deliveryDateInput"><br>
+        <label for="fromWarehouseInput">From Warehouse: </label><br>
+        <input type="text" id="fromWarehouseInput"><br>
+        <label for="destinationInput">Destination: </label><br>
+        <input type="text" id="destinationInput"><br>
+
+        <button onclick="sendDeliveryData()">Create</button>
+    </div>
+    <br>
+
+
+    <!--Create ProductOrder-->
+    <div class="makeUp">
+        <h3>Create Product Order</h3>
+        <label for="quantityInput">Product Quantity</label><br>
+        <input type="text" id="quantityInput"><br>
+        <button onclick="sendOrderData()">Create</button>
+    </div>
+
+    <div class="makeUp">
+        <h3>Add Product to Order</h3>
+        <label for="productOrderIdInput">Select ProductOrder ID</label><br>
+        <input type="text" id="productOrderIdInput"><br>
+        <label for="productIdInput">Select Product ID</label><br>
+        <input type="text" id="productIdInput"><br>
+        <button onclick="addProductToOrder()">Create</button>
+    </div>
+
+
+    <!--              
     <div class="makeUp">
         <label for=""></label><br>
         <input type="text" id=""><br>
