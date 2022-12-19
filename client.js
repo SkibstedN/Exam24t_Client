@@ -102,7 +102,7 @@ await fetch(urlFindProduct).then((response) => response.json()).then((responseOb
             tdata.innerHTML = 'Product found : ';
             //tdata.id = 'productFoundBtnHide';
             tdata.style.fontWeight = "bold"
-            tdata.style.fontSize = "26px"
+            tdata.style.fontSize = "20px"
     } if(i == 1){
         const tdata = row.insertCell();
               tdata.appendChild(document.createTextNode(objFound.name));
@@ -119,4 +119,54 @@ await fetch(urlFindProduct).then((response) => response.json()).then((responseOb
     content.innerHTML = ''
     //indlæser det nye table
     content.appendChild(table);
+}
+
+
+//create delivery
+function sendDeliveryData(){
+    var data = new FormData();
+    data.append("deliveryDate",document.getElementById("deliveryDateInput").value);
+    data.append("fromWarehouse",document.getElementById("fromWarehouseInput").value);
+    data.append("destination",document.getElementById("destinationInput").value);
+
+    fetch("http://localhost:8080/createDelivery", {
+        method: "POST",
+        body: data
+    })    
+}
+
+//create Product Order
+function sendOrderData(){
+    var data = new FormData();
+    data.append("quantity",document.getElementById("quantityInput").value);
+
+    fetch("http://localhost:8080/createProductOrder",{
+        method: "POST",
+        body: data
+    })
+
+}
+
+
+//add product
+function addProductToOrder(){
+    let productOrderIdInput = document.getElementById("productOrderIdInput").value
+    let productIdInput = document.getElementById("productIdInput").value
+
+    let url = new URL('http://localhost:8080/addProduct')
+
+    //Key value pairs
+    var productParameters = {productOrderId: productOrderIdInput,
+        productId: productIdInput
+    }
+    //sætter værdierne ind i url med .search
+    url.search = new URLSearchParams(productParameters).toString();
+
+    fetch(url, {method: 'POST'})
+        .then((response) => {
+            if(response.status != 200){
+            throw new console.error("fetch error");
+        }
+        })
+        .catch((error) => {console.log(error);});
 }
