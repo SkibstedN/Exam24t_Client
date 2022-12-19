@@ -156,8 +156,7 @@ function addProductToOrder(){
     let url = new URL('http://localhost:8080/addProduct')
 
     //Key value pairs
-    var productParameters = {productOrderId: productOrderIdInput,
-        productId: productIdInput
+    var productParameters = {productOrderId: productOrderIdInput, productId: productIdInput
     }
     //sætter værdierne ind i url med .search
     url.search = new URLSearchParams(productParameters).toString();
@@ -170,3 +169,24 @@ function addProductToOrder(){
         })
         .catch((error) => {console.log(error);});
 }
+
+//add Delivery
+function addDeliveryToOrder(){
+    let prodOrderIdInput = document.getElementById("prodOrderIdInput").value
+    let deliveryIdInput = document.getElementById("deliveryIdInput").value
+
+    let url = new URL('http://localhost:8080/addDelivery')
+
+    var pParameters = {productOrderId: prodOrderIdInput, deliveryId: deliveryIdInput}
+
+    url.search = new URLSearchParams(pParameters).toString();
+
+    fetch(url, {method: 'POST'})
+        .then((response) => {
+            if(response.status !=200){
+                throw new console.error("fetch error");
+            }
+            })
+            .catch((error) => {console.log(error);});
+        }
+

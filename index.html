@@ -63,29 +63,35 @@
     <br>
 
 
-    <!--Create ProductOrder-->
+    <!--Create Product Order-->
     <div class="makeUp">
-        <h3>Create Product Order</h3>
+        <h3>Create ProductOrder</h3>
         <label for="quantityInput">Product Quantity</label><br>
         <input type="text" id="quantityInput"><br>
         <button onclick="sendOrderData()">Create</button>
     </div>
 
+    <!--Add Product to a Product Order-->
     <div class="makeUp">
         <h3>Add Product to Order</h3>
         <label for="productOrderIdInput">Select ProductOrder ID</label><br>
         <input type="text" id="productOrderIdInput"><br>
         <label for="productIdInput">Select Product ID</label><br>
         <input type="text" id="productIdInput"><br>
-        <button onclick="addProductToOrder()">Create</button>
+        <button onclick="addProductToOrder()">Add</button>
     </div>
 
-
-    <!--              
+    <!--Add Delivery to a Product Order-->
     <div class="makeUp">
-        <label for=""></label><br>
-        <input type="text" id=""><br>
-    </div>-->
+        <h3>Add DeliveryID to Product Order</h3>
+        <label for="prodOrderIdInput">Select Product Order ID</label><br>
+        <input type="text" id="prodOrderIdInput"><br>
+        <label for="deliveryIdInput">Select Delivery ID</label><br>
+        <input type="text" id="deliveryIdInput"><br>
+        <button onclick="addDeliveryToOrder()">Add</button>
+    </div>
+
+    
 
 
 
