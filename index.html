@@ -8,6 +8,51 @@
     <title>Index</title>
 </head>
 <body>
+    <h2>24 timers eksamensprojekt - Dagligvare levering</h2>
+
+    <!-- Create Product form & submit-->
+    <div id="mainDiv" class="makeUp">
+        <div id="formDiv" class="makeUp">
+                <h3>Create Product</h3>
+            <form onsubmit="sendProductData()">
+                <label for="nameInput">Product name: </label><br>
+                <input type="text" id="nameInput"><br>
+
+                <label for="priceInput">Price</label><br>
+                <input type="text" id="priceInput"><br>
+
+                <label for="weightInput">Weight</label><br>
+                <input type="text" id="weightInput"><br>
+
+                <input type="submit" value="Create">
+            </form>
+        </div>    
+    </div>
+
+    <!--FindAll knap og visning-->
+    <div class="makeUp">
+        <a id="productTableBTN" onclick="sProducts.showProducts()"><b>Show All Products</b></a>
+            <!--div til visning af response-->
+            <div id="productList"></div>
+    </div>
+    <br>
+
+    <!--find by id-->
+    <div class="makeUp">
+        <label for="pIdInput">Product ID</label><br>
+        <input type="text" id="pIdInput"><br>
+        <button onclick="findProductData()">Find Product</button>
+        <div id="productFoundDiv"></div>
+    </div>
+
+    <!--              Create Product Order
+    <div class="makeUp">
+        <label for=""></label><br>
+        <input type="text" id=""><br>
+    </div>-->
+
+
+
     
 </body>
 </html>
