@@ -87,8 +87,24 @@ async function findProductData() {
     var paramFindProduct = { id: productByIdInput };
     urlFindProduct.search = new URLSearchParams(paramFindProduct).toString();
 
-await fetch(urlFindProduct).then((response) => response.json()).then((responseObj) => objFound = responseObj);
-    const content = document.getElementById('productFoundDiv');
+    fetch(urlFindProduct, {method: 'GET'})
+    .then(response => response.json())
+    .then(responseText => {
+    const para1 = document.getElementById("para1");
+    para1.innerHTML = "id: " + responseText.id;
+    const para2 = document.getElementById("para2");
+    para2.innerHTML = "Name: " + responseText.name;
+    const para3 = document.getElementById("para3");
+    para3.innerHTML = "price: " + responseText.price + " Kr.-";
+    const para4 = document.getElementById("para4");
+    para4.innerHTML = "weight: " + responseText.weight + " Grams.";
+ })
+    .catch(error => console.error(error));3
+   
+
+/*await fetch(urlFindProduct).then((response) => response.json()).then((responseObj) => objFound = responseObj);
+
+   const content = document.getElementById('productFoundDiv');
 
     const table = document.createElement('table');
     table.id = "productFoundTable";
@@ -118,7 +134,7 @@ await fetch(urlFindProduct).then((response) => response.json()).then((responseOb
     //nulstiller table
     content.innerHTML = ''
     //indlæser det nye table
-    content.appendChild(table);
+    content.appendChild(table);  */
 }
 
 
